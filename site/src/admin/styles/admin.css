@@ -1,0 +1,95 @@
+html, body, #root, .login-wrapper {
+  height: 100%; }
+
+.login-wrapper {
+  background: url("../images/HeaderMain.jpg") center center no-repeat;
+  background-size: cover; }
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; }
+  .admin-header a {
+    float: right;
+    padding: 3px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 1px solid #fff;
+    transition: .5s; }
+    .admin-header a:hover {
+      color: #fff;
+      text-decoration: none;
+      background: black; }
+
+.btn.btn-primary {
+  background: transparent;
+  border-radius: 0;
+  color: #666;
+  border-color: #666; }
+  .btn.btn-primary:hover {
+    background: rgba(251, 251, 251, 0.825);
+    color: #333;
+    border-color: #333; }
+
+.vertical-align {
+  width: 0;
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle; }
+
+.container-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%; }
+  .container-wrapper h1, .container-wrapper h2, .container-wrapper h3, .container-wrapper p, .container-wrapper input, .container-wrapper button {
+    font-weight: 200; }
+  .container-wrapper input {
+    background: none;
+    border-color: #333;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid; }
+    .container-wrapper input:focus {
+      background: none;
+      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.525);
+      border-color: transparent; }
+  .container-wrapper input::placeholder {
+    color: #555; }
+  .container-wrapper .container {
+    background: rgba(251, 251, 251, 0.825);
+    padding-top: 15px;
+    padding-bottom: 15px; }
+
+.admin-login-block, .admin-heading-block {
+  width: 500px;
+  margin: auto; }
+
+.admin-dashboard {
+  height: 100%;
+  background: url("../images/HeaderMain.jpg") center center no-repeat;
+  background-size: cover; }
+  .admin-dashboard h1, .admin-dashboard h2, .admin-dashboard h3, .admin-dashboard p, .admin-dashboard input, .admin-dashboard button {
+    font-weight: 200; }
+  .admin-dashboard a:hover {
+    text-decoration: none; }
+
+.admin-route {
+  background: rgba(251, 251, 251, 0.8);
+  height: 150px;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid #333;
+  transition: .75s;
+  font-weight: 200; }
+  .admin-route:hover {
+    background: #fbfbfb; }
+
+.icon-container {
+  font-size: 50px;
+  color: #333; }
+
+.admin-route__text {
+  color: #333; }

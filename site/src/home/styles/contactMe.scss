@@ -1,0 +1,49 @@
+$errCol :#ff0033;
+
+.contact-me-container{
+    margin-bottom: 50px;
+    h1, p, label, input{
+        font-weight: 200;
+    }
+
+    input{
+        border: none;
+        border-bottom: 1px solid #333;
+    }
+    input[name="geezersName"]{
+        min-width: 200px;
+    }
+    input[name="geezersSubject"]{
+        min-width: 400px;
+    }
+    input[name="geezersEmail"]{
+        min-width: 300px;
+    }
+    textarea{
+        width: 100%;
+        height: 100px;
+    }
+    .fake_news{
+        border-color: $errCol;
+    }
+    .error_messages{
+        ul{
+            padding: 0;
+            li{
+                list-style: none;
+                background: $errCol;
+                color: #fff;
+                padding: 3px 10px;
+            }
+            li:first-child{
+                margin-top: 5px;
+            }
+        }
+    }
+    .success_message{
+        background: #49E20E;
+        color: #fff;
+        padding: 3px 10px;
+    }
+}
+

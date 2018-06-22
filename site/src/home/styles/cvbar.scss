@@ -1,0 +1,26 @@
+.cv-container{
+    padding: 75px 0;
+    text-align: center;
+    background: url("../images/background1.jpg") center center fixed no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: inset 0px 0px 30px 15px rgba(0,0,0, 0.5);
+}
+.cv-container_blend-color{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(251,251,251,0.4), #fff 90%);
+}
+
+@media (min-width: 576px) {
+    .cv-container{
+        padding: 150px 0;
+        margin-top: 200px;
+        margin-bottom: 100px;
+    }
+}

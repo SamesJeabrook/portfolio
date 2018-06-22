@@ -1,0 +1,101 @@
+.projects-list-container{
+    position: relative;
+    z-index: 3;
+    margin-bottom: 100px;
+}
+
+.project-item-wrapper{
+    margin-bottom: 50px;
+}
+img{
+    max-width: 100%;
+    padding: 3px;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+
+// small devices
+@media (min-width: 767px){
+    .projects-list-wrapper{
+        margin-top: 50px;
+    }
+    .project-item-wrapper{
+        display: inline-block;
+        width: 100%;
+    }
+
+    .project-item:nth-child(even){
+        position: relative;
+        top: 80px;
+        .project-item__image{
+            order: 1;
+            position: relative;
+            right: 35px;
+        }
+        .project-item__text-container{
+            order: 2;
+        }
+
+        .project-item__image-container{
+            transform: rotate(-46deg) translate3d(0,0,0);
+        }
+    
+        .project-item__image-wrapper{
+            margin: 0;
+            transform: skew(20deg, 20deg);
+    
+            img{
+                position: absolute;
+                margin-top: 45px;
+                margin-left: 50px;
+                transform:skew(-20deg, -20deg) rotate(46deg);    
+            }
+        }
+    }
+
+    .project-item{
+        h3, p{
+            font-weight: 200;
+            color: #666;
+        }
+        &:hover{
+            h3,p{
+                color: #333;
+            }
+            img{
+                opacity: 1;
+            }
+        }
+    }
+
+    .project-item__image-container{
+        width: 100px;
+        transform: rotate(135deg) translate3d(0,0,0);
+        display: inline-block;
+        overflow: visible;
+    }
+
+    .project-item__image-wrapper{
+        position: relative;
+        top: 50px;
+        height: 160px;
+        width: 160px;
+        overflow: hidden;
+        display: block;
+        margin: 0;
+        transform: skew(20deg, 20deg);
+
+        img{
+            max-width: 200px;
+            position: absolute;
+            left: -76%;
+            top: -61%;
+            margin-top: 45px;
+            margin-left: 50px;
+            transform:skew(-20deg, -20deg) rotate(-135deg);    
+            opacity: 0.5;
+            transition: .5s ease-in;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+$fontColor: #9d9d9d;
+
+.footer-container{
+    background: #333;
+    color: $fontColor;
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+
+    a{
+        color: $fontColor;
+        &:hover{
+            color: $fontColor;
+            text-decoration: underline;
+        }
+    }
+    li{
+        list-style: none;
+        position: relative;
+        padding: 5px 0;
+        font-weight: 200;
+        &.text-muted{
+            color: #4d4d4d;
+        }
+        &.footer-container__heading{
+            font-weight: 800;
+        }
+        i{
+            position: absolute;
+            left: -35px;
+            top:0;
+            font-size: 25px;
+        }
+    }
+}

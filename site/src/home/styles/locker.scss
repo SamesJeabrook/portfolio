@@ -1,0 +1,60 @@
+.locker-container h1,
+.locker-container p{
+    font-weight: 200;
+}
+
+$delay:0.002;
+$size:1;
+.skills-container{
+    overflow:hidden;
+    position: relative;
+}
+.skills-container__wave{
+    position: relative;
+    bottom: -1px;
+}
+.skills-container__image{
+    position: relative;
+    z-index: 1;
+}
+.skills-container__glass-contents{
+    position: absolute;
+    bottom: 55px;
+}
+.skills-block{
+    width: 400px;
+    height: 0px;
+    transition: height 1s;
+}
+
+td{
+    transition: 1s;
+}
+
+.waveLine{
+  background: #ffa863;
+  width: $size+px;
+  height: 1px;
+  float: left;
+  animation: wave 0.5s infinite ease-in-out alternate;
+  z-index: 1;
+  position:absolute;
+//   transition: 0.25s;
+//   transition-delay: 1s; // removed the delay as it makes a pop in the wave which looks worse than the transition
+}
+  
+@for $i from 1 through 480 {
+  .waveLine:nth-child(#{$i}){
+    animation-delay:($delay*$i)+s;
+    left: ($size*$i)+px;
+  }
+}
+
+@keyframes wave {
+  0%{
+    transform: translateY(-5px);
+    height: 5px;}
+  100%{
+    transform: translateY(-20px);
+    height: 20px;}
+}

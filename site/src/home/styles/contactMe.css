@@ -1,0 +1,31 @@
+.contact-me-container {
+  margin-bottom: 50px; }
+  .contact-me-container h1, .contact-me-container p, .contact-me-container label, .contact-me-container input {
+    font-weight: 200; }
+  .contact-me-container input {
+    border: none;
+    border-bottom: 1px solid #333; }
+  .contact-me-container input[name="geezersName"] {
+    min-width: 200px; }
+  .contact-me-container input[name="geezersSubject"] {
+    min-width: 400px; }
+  .contact-me-container input[name="geezersEmail"] {
+    min-width: 300px; }
+  .contact-me-container textarea {
+    width: 100%;
+    height: 100px; }
+  .contact-me-container .fake_news {
+    border-color: #ff0033; }
+  .contact-me-container .error_messages ul {
+    padding: 0; }
+    .contact-me-container .error_messages ul li {
+      list-style: none;
+      background: #ff0033;
+      color: #fff;
+      padding: 3px 10px; }
+    .contact-me-container .error_messages ul li:first-child {
+      margin-top: 5px; }
+  .contact-me-container .success_message {
+    background: #49E20E;
+    color: #fff;
+    padding: 3px 10px; }

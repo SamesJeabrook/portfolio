@@ -1,0 +1,42 @@
+.btn.btn-default {
+  color: #666;
+  border-color: #666;
+  background: transparent;
+  font-weight: 200;
+  border-radius: 0;
+  padding: .375rem 3rem;
+  position: relative;
+  z-index: 2; }
+  .btn.btn-default a {
+    color: #333; }
+    .btn.btn-default a:hover {
+      text-decoration: none; }
+
+.btn.btn-default:hover {
+  color: #333;
+  background-color: rgba(251, 251, 251, 0.5);
+  border-color: #333; }
+
+.projects-container {
+  padding: 75px 0;
+  text-align: center;
+  background: url("../images/background2.jpg") center center fixed no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: inset 0px 0px 30px 15px rgba(0, 0, 0, 0.5); }
+
+.projects-container_blend-color {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(251, 251, 251, 0.4), #fff 90%); }
+
+@media (min-width: 576px) {
+  .projects-container {
+    padding: 150px 0;
+    margin-top: 200px;
+    margin-bottom: 100px; } }
