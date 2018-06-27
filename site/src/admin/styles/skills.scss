@@ -1,0 +1,42 @@
+.admin-skills{
+    background: url(../images/HeaderMain.jpg) center center no-repeat fixed;
+    background-size: cover;
+    height: 100%;
+
+    .alert{
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+    }
+
+    h1,
+    h3,
+    p,
+    td,
+    a,
+    label,
+    span,
+    input{
+        font-weight: 200;
+    }
+    .btn{
+      margin-bottom: 50px;
+    }
+    .overflow-wrapper{
+        max-height: 700px;
+        overflow-y: auto;
+    }
+
+    table{
+        th{
+            font-weight: 200;
+            text-transform: uppercase;
+        }
+        button{
+            margin: 0 5px;
+        }
+    }
+}
+.container.admin-skills{
+    background: rgba(251,251,251,0.7);
+}

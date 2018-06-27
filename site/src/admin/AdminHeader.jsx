@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
-import {withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class AdminHeader extends Component {
-
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
-    }
 
     constructor(){
         super();
@@ -28,6 +22,7 @@ class AdminHeader extends Component {
             <div className="admin-header">
                 <div className="col-12">
                     <a href="#" onClick={this.handleClick}>Logout</a>
+                    <Link to="/admin/dashboard">Return to Dashboard</Link>
                 </div>
             </div>
         )

@@ -217,9 +217,11 @@ class PersonalStatement extends Component {
         });
     }
 
-    componentWillMount(){
-        this.renderHtml(JSON.parse(this.props.userBio.aboutMe), 'aboutMe')
-        this.renderHtml(JSON.parse(this.props.userBio.aboutWork), 'aboutWork')
+    componentDidMount(){
+        if(this.props.userBio){
+            this.renderHtml(JSON.parse(this.props.userBio.aboutMe), 'aboutMe')
+            this.renderHtml(JSON.parse(this.props.userBio.aboutWork), 'aboutWork')
+        }
     }
 
     render() {

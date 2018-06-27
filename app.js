@@ -16,6 +16,7 @@ require('./api/passport');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const skills = require('./routes/skills');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(morgan('dev'));
 
 app.use('/api/', index);
 app.use('/api/user/', users);
+app.use('/api/skills/', skills);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

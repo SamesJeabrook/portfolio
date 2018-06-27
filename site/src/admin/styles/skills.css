@@ -1,0 +1,30 @@
+.admin-skills {
+  background: url(../images/HeaderMain.jpg) center center no-repeat fixed;
+  background-size: cover;
+  height: 100%; }
+  .admin-skills .alert {
+    position: fixed;
+    top: 0;
+    z-index: 9999; }
+  .admin-skills h1,
+  .admin-skills h3,
+  .admin-skills p,
+  .admin-skills td,
+  .admin-skills a,
+  .admin-skills label,
+  .admin-skills span,
+  .admin-skills input {
+    font-weight: 200; }
+  .admin-skills .btn {
+    margin-bottom: 50px; }
+  .admin-skills .overflow-wrapper {
+    max-height: 700px;
+    overflow-y: auto; }
+  .admin-skills table th {
+    font-weight: 200;
+    text-transform: uppercase; }
+  .admin-skills table button {
+    margin: 0 5px; }
+
+.container.admin-skills {
+  background: rgba(251, 251, 251, 0.7); }

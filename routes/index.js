@@ -3,6 +3,7 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
+const Skills = require('../models/skills');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 // GET setup
 
-router.get('/setup/', function(req, res){
+router.get('/setup/user', function(req, res){
   var me = new User()
   
   me.userName = 'samesJeabrook';
@@ -33,8 +34,25 @@ router.get('/setup/', function(req, res){
           res.json({"status" : "success", "token" : token });
       }
       console.log('User saved successfully');
-  })
+  });
 });
+
+router.get('/setup/skills', function(req, res){
+    var skills = new Skills()
+
+    skills.skillName = 'HTML',
+    skills.skillPercent = 100
+
+    skills.save(function(err){
+        if(err){
+            res.status(400);
+            res.json({"status" : "fail", "message" : err});
+        }else{
+            res.status(200);
+            res.json({"status" : "success" });
+        }
+    });
+})
 
 router.get('/logout/', function(req, res){
     req.logout();

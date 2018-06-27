@@ -124,11 +124,12 @@ class AdminBio extends Component{
                     <div className="row">
                         <div className="col-12">
                         { feedbackType ? <Feedback type={feedbackType} message={feedbackMsg} /> : null }
-                        <h1>Admin Bio</h1>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
+                            <h1>Admin Bio</h1>
+                            <p>This is where you can update your on screen Bio.</p>
                             <Form onSubmit={this.handleSubmit}>
                                 <FormGroup>
                                     <Label for="tagLine">Tag Line</Label>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
+import axios from 'axios';
 
 // styles
 
@@ -11,15 +12,6 @@ class Locker extends Component {
     constructor(){
         super();
         this.state = {
-            skillsetPercent : {
-                html5 : 100,
-                css: 100,
-                javascript: 80,
-                react: 75,
-                node: 25,
-                sass: 70,
-                bullshit: 100
-            },
             skillsetColours : {
                 html5 : '#fff',
                 css: '#fff',
@@ -37,9 +29,9 @@ class Locker extends Component {
     // set the height and colour of each representative skill within the glass based on the height of the responsive image upon load.
 
     setSkillsHeightandColour(){
-        // if(window.location.pathname === "/"){
-            const imgHeight = document.querySelector('.skills-container__image').height;
-            const {skillsetPercent} = this.state;
+        const imgHeight = document.querySelector('.skills-container__image').height;
+        const {skillsetPercent} = this.state;
+        if(skillsetPercent){
             const skillsLength = Object.keys(skillsetPercent).length;
             let colorPercent = 1;
             const skillsValues = new Map(Object.entries(this.state.skillsetPercent));
@@ -59,7 +51,7 @@ class Locker extends Component {
                     skillsetColours: colourStateClone
                 })
             });
-        // }
+        }
     }
 
     /*
@@ -93,8 +85,46 @@ class Locker extends Component {
         this.setSkillsHeightandColourIndividual(skill);
     }
 
-    componentDidMount(){
-        this.setSkillsHeightandColour();
+    retrieveSkills(){
+        axios.get('/api/skills/list').then((res) => {
+            let skillsetPercent = {};
+            let skillsetColours = {};
+            res.data.data.map((item, index) => {
+                skillsetPercent[item.skillName] = item.skillPercent;
+                skillsetColours[item.skillName] = "#fff";
+
+            })
+            this.setState({
+                skillsetPercent: skillsetPercent,
+                skillsetColours: skillsetColours
+            });
+            console.log(this.state);
+            this.setSkillsHeightandColour();
+        }, (res) => {
+            this.setState({
+                skillsetPercent : {
+                    html5 : 100,
+                    css: 100,
+                    javascript: 80,
+                    react: 75,
+                    node: 25,
+                    sass: 70
+                },
+                skillsetColours : {
+                    html5 : '#fff',
+                    css: '#fff',
+                    javascript: '#fff',
+                    react: '#fff',
+                    node: '#fff',
+                    sass: '#fff'
+                }
+            });
+            this.setSkillsHeightandColour();
+        })
+    }
+
+    componentWillMount(){
+        this.retrieveSkills();
     }
  
     render() {
@@ -102,15 +132,15 @@ class Locker extends Component {
         // render the table nodes based on how many options their are in the skills list
         const renderSkillsList = () =>{
             const {skillsetColours} = this.state;
-            if(skillsetColours.hasOwnProperty('html5')){
+            // if(skillsetColours.hasOwnProperty('html5')){
                 let tableBlock = [];
                 Object.keys(skillsetColours).forEach((key, index) => {
                     tableBlock.push( <tr key={index} data-skill={key} onMouseEnter={this.handleSkillsHover} onMouseLeave={this.setSkillsHeightandColour}><td>{key}</td><td style={{backgroundColor: skillsetColours[key] }}></td></tr> )
                 });
                 return(tableBlock);
-            }else{
-                return null;
-            }
+            // }else{
+            //     return null;
+            // }
             
             
         }
@@ -118,11 +148,15 @@ class Locker extends Component {
         // loop to retrieve each of the skills block from the state and output individually
         const renderSkillsGlass = () =>{
             const {skillsetPercent} = this.state;
-            let skillsBlock = [];
-            Object.keys(skillsetPercent).forEach((key, index) => {
-                skillsBlock.push(<div key={index} className={`skills-block skills-block_${key}`} ></div>)
-            })
-            return(skillsBlock);
+            if(skillsetPercent){
+                let skillsBlock = [];
+                Object.keys(skillsetPercent).forEach((key, index) => {
+                    skillsBlock.push(<div key={index} className={`skills-block skills-block_${key}`} ></div>)
+                })
+                return(skillsBlock);
+            }else{
+                return null;
+            }
         }
 
         // loop to create each waveline for the inner glass
