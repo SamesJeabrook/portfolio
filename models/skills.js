@@ -5,4 +5,4 @@ const skillsSchema = new mongoose.Schema({
     skillPercent: Number
 });
 
-let User = module.exports = mongoose.model('Skills', skillsSchema);
+let Skills = module.exports = mongoose.model('Skills', skillsSchema);

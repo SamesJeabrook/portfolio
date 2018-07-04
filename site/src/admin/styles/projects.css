@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format("woff2"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
+.admin-projects {
+  background: url(../images/HeaderMain.jpg) center center no-repeat fixed;
+  background-size: cover; }
+  .admin-projects .button {
+    color: #ccc;
+    cursor: pointer; }
+  .admin-projects .toolbar-menu {
+    position: relative;
+    padding: 5px 10px 5px;
+    margin: 0;
+    opacity: 1;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px; }
+  .admin-projects .toolbar-menu__buttons {
+    margin: auto; }
+  .admin-projects .toolbar-button {
+    padding: 8px 15px;
+    display: inline-block; }
+  .admin-projects .menu > * {
+    display: inline-block; }
+  .admin-projects .menu > * + * {
+    margin-left: 15px; }
+  .admin-projects .editor {
+    min-height: 300px; }
+  .admin-projects .button[data-active='true'] {
+    color: black; }
+  .admin-projects .alert {
+    position: fixed;
+    top: 0;
+    z-index: 9999; }
+  .admin-projects h1,
+  .admin-projects h3,
+  .admin-projects p,
+  .admin-projects td,
+  .admin-projects a,
+  .admin-projects label,
+  .admin-projects span,
+  .admin-projects input {
+    font-weight: 200; }
+  .admin-projects .btn {
+    margin-bottom: 50px; }
+  .admin-projects .overflow-wrapper {
+    max-height: 700px;
+    overflow-y: auto; }
+
+.container {
+  background: rgba(251, 251, 251, 0.7); }

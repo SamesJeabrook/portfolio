@@ -12,6 +12,7 @@ import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
 import AdminBio from './admin/AdminBio';
 import AdminSkills from './admin/AdminSkills';
+import AdminProjects from './admin/AdminProjects';
 import ErrorPage from './404/404';
 
 import Defaults from './default.json';
@@ -83,8 +84,10 @@ class App extends Component {
           <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
           {/* <PrivateRoute path="/admin/profile/:id" component={AdminBio} /> */}
           {/* <PrivateRoute path="/admin/skills" component={AdminSkills} /> */}
+          {/* <PrivateRoute path="/admin/projects" component={AdminProjects} /> */}
           <Route path="/admin/profile/:id" component={AdminBio} />
           <Route path="/admin/skills" component={AdminSkills} />
+          <Route path="/admin/projects" component={AdminProjects} />
           <Route component={ErrorPage} />
         </Switch>
       </Router>

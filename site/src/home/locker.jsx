@@ -132,15 +132,11 @@ class Locker extends Component {
         // render the table nodes based on how many options their are in the skills list
         const renderSkillsList = () =>{
             const {skillsetColours} = this.state;
-            // if(skillsetColours.hasOwnProperty('html5')){
-                let tableBlock = [];
-                Object.keys(skillsetColours).forEach((key, index) => {
-                    tableBlock.push( <tr key={index} data-skill={key} onMouseEnter={this.handleSkillsHover} onMouseLeave={this.setSkillsHeightandColour}><td>{key}</td><td style={{backgroundColor: skillsetColours[key] }}></td></tr> )
-                });
-                return(tableBlock);
-            // }else{
-            //     return null;
-            // }
+            let tableBlock = [];
+            Object.keys(skillsetColours).forEach((key, index) => {
+                tableBlock.push( <tr key={index} data-skill={key} onMouseEnter={this.handleSkillsHover} onMouseLeave={this.setSkillsHeightandColour}><td>{key}</td><td style={{backgroundColor: skillsetColours[key] }}></td></tr> )
+            });
+            return(tableBlock);
             
             
         }

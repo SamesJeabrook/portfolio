@@ -33,7 +33,6 @@ userSchema.methods.validPassword = function(password){
 userSchema.methods.generateJwt = function(){
     let expiry = new Date();
     expiry.setDate(expiry.getDate() + 7);
-    console.log(process.env.JWT_SECRET);
     return jwt.sign({
         _id: this._id,
         email: this.email,
