@@ -11,7 +11,7 @@ require('../api/passport');
 const Projects = require('../models/projects');
 
 const storage = multer.diskStorage({
-    destination: './public/images',
+    destination: '.site/uploads/projects',
     filename(req, file, callback){
         callback(null, file.originalname);
     }
@@ -38,11 +38,11 @@ router.post('/update', upload.fields([
         updateProjects.projectLikes = req.body.projectLikes,
         updateProjects.projectImprovements = req.body.projectImprovements,
         updateProjects.projectLinkTo = req.body.projectLinkTo,
-        updateProjects.projectImageDesktop = req.files.projectImageDesktop.path,
-        updateProjects.projectImageMobile = req.files.projectImageMobile.path,
-        updateProjects.projectScreenshot1 = req.files.projectScreenshot1.path,
-        updateProjects.projectScreenshot2 = req.files.projectScreenshot2.path,
-        updateProjects.projectScreenshot3 = req.files.projectScreenshot3.path,
+        updateProjects.projectImageDesktop = req.files.projectImageDesktop[0].path,
+        updateProjects.projectImageMobile = req.files.projectImageMobile[0].path,
+        updateProjects.projectScreenshot1 = req.files.projectScreenshot1[0].path,
+        updateProjects.projectScreenshot2 = req.files.projectScreenshot2[0].path,
+        updateProjects.projectScreenshot3 = req.files.projectScreenshot3[0].path,
         console.log('updating project id: ', req.body.id);
         
         projects.findByIdAndUpdate(req.body.id, updateProjects, function(err, skill){
@@ -59,6 +59,8 @@ router.post('/update', upload.fields([
             }
         })
     }else{
+        console.log(req.body)
+        console.log(req.files.projectImageDesktop)
         projects.projectTitle = req.body.projectTitle;
         projects.projectDesc = req.body.projectDesc;
         projects.projectDetail = req.body.projectDetail;
@@ -66,11 +68,11 @@ router.post('/update', upload.fields([
         projects.projectLikes = req.body.projectLikes;
         projects.projectImprovements = req.body.projectImprovements;
         projects.projectLinkTo = req.body.projectLinkTo;
-        req.files.projectImageDesktop ?  projects.projectImageDesktop = req.files.projectImageDesktop.path : null
-        req.files.projectImageMobile ? projects.projectImageMobile = req.files.projectImageMobile.path : null;
-        req.files.projectScreenshot1 ? projects.projectScreenshot1 = req.files.projectScreenshot1.path : null;
-        req.files.projectScreenshot2 ? projects.projectScreenshot2 = req.files.projectScreenshot2.path : null;
-        req.files.projectScreenshot3 ? projects.projectScreenshot3 = req.files.projectScreenshot3.path : null;
+        req.files.projectImageDesktop ?  projects.projectImageDesktop = req.files.projectImageDesktop[0].path : null
+        req.files.projectImageMobile ? projects.projectImageMobile = req.files.projectImageMobile[0].path : null;
+        req.files.projectScreenshot1 ? projects.projectScreenshot1 = req.files.projectScreenshot1[0].path : null;
+        req.files.projectScreenshot2 ? projects.projectScreenshot2 = req.files.projectScreenshot2[0].path : null;
+        req.files.projectScreenshot3 ? projects.projectScreenshot3 = req.files.projectScreenshot3[0].path : null;
 
         projects.save(function(err){
             if(err){
@@ -80,7 +82,6 @@ router.post('/update', upload.fields([
                 res.status(200);
                 res.json({"status" : "success" });
             }
-            console.log('res data', res);
         });
     }
 });
@@ -122,7 +123,7 @@ router.post('/delete', passport.authenticate('jwt', {session: false}), function(
         })
     }else{
         res.status(500);
-        res.json({'status': "fail", "messsage": "No ID has been specified to remove skill"});
+        res.json({'status': "fail", "messsage": "No ID has been specified to remove the project"});
     }
 })
 

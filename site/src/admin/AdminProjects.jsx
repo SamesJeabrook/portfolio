@@ -14,17 +14,38 @@ import AdminProjectChallenges from './AdminProjectsChallenges';
 import AdminProjectLikes from './AdminProjectLikes';
 import AdminProjectImprov from './AdminProjectImprov';
 
+const DocumentSet = {
+    document: {
+        nodes: [
+            {
+                object: 'block',
+                type: 'paragraph',
+                nodes: [
+                    {
+                        object: 'text',
+                        leaves: [
+                            {
+                                text: ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
 class AdminProjects extends Component {
     constructor(){
         super();
         this.state = {
             feedbackType: null,
             feedbackMsg: null,
-            projectDescValue: localStorage.getItem('projectDesc'),
-            projectDetailValue: localStorage.getItem('projectDetail'),
-            projectChallengesValue: localStorage.getItem('projectChallenges'),
-            projectLikesValue: localStorage.getItem('projectLikes'),
-            projectImprovementsValue: localStorage.getItem('projectImprovements')
+            projectDescValue: localStorage.getItem('projectDesc') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('projectDesc'),
+            projectDetailValue: localStorage.getItem('projectDetail') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('projectDetail'),
+            projectChallengesValue: localStorage.getItem('projectChallenges') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('projectChallenges'),
+            projectLikesValue: localStorage.getItem('projectLikes') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('projectLikes'),
+            projectImprovementsValue: localStorage.getItem('projectImprovements') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('projectImprovements'),
         }
         this.handleProjectDescChange = this.handleProjectDescChange.bind(this);
         this.handleProjectDetailChange = this.handleProjectDetailChange.bind(this);
@@ -37,7 +58,7 @@ class AdminProjects extends Component {
     }
 
     handleProjectDescChange({value}){
-        if(this.state.projectDescValue && value.document != this.state.projectDescValue.document){
+        if(value.document != this.state.projectDescValue.document){
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('projectDesc', content)
             this.setState({
@@ -47,7 +68,7 @@ class AdminProjects extends Component {
     }
 
     handleProjectDetailChange({value}){
-        if(this.state.projectDetailValue && value.document != this.state.projectDetailValue.document){
+        if(value.document != this.state.projectDetailValue.document){
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('projectDetail', content)
             this.setState({
@@ -57,7 +78,7 @@ class AdminProjects extends Component {
     }
 
     handleProjectChallengesChange({value}){
-        if(this.state.projectChallengesValue && value.document != this.state.projectChallengesValue.document){
+        if(value.document != this.state.projectChallengesValue.document){
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('projectChallenges', content)
             this.setState({
@@ -67,7 +88,7 @@ class AdminProjects extends Component {
     }
 
     handleProjectLikesChange({value}){
-        if(this.state.projectLikesValue && value.document != this.state.projectLikesValue.document){
+        if(value.document != this.state.projectLikesValue.document){
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('projectLikes', content)
             this.setState({
@@ -77,7 +98,7 @@ class AdminProjects extends Component {
     }
 
     handleProjectImprovementsChange({value}){
-        if(this.state.projectImprovementsValue && value.document != this.state.projectImprovementsValue.document){
+        if(value.document != this.state.projectImprovementsValue.document){
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('projectImprovements', content)
             this.setState({
@@ -156,10 +177,10 @@ class AdminProjects extends Component {
     }
 
     render(){
-        const {feedbackType, feedbackMsg} = this.state;
+        const {feedbackType, feedbackMsg, projectDescValue, projectDetailValue, projectChallengesValue, projectLikesValue, projectImprovementsValue} = this.state;
         return(
             <div className="admin-projects">
-                <AdminHeader />
+                <AdminHeader />, 
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -180,28 +201,28 @@ class AdminProjects extends Component {
                                     <Input type="text" onChange={this.handleTextChange} id="projectTitle" name="projectTitle" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="projectLinkto">Link to project</Label>
+                                    <Label for="projectLinkTo">Link to project</Label>
                                     <Input type="text" onChange={this.handleTextChange} id="projectLinkTo" placeholder="Link to actual project or company project was for" />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Project Descriptions</Label>
-                                    <AdminProjectDesc onChange={this.handleProjectDescChange} />
+                                    <AdminProjectDesc onChange={this.handleProjectDescChange} value={projectDescValue}/>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Project Detail</Label>
-                                    <AdminProjectDetail onChange={this.handleProjectDetailChange} />
+                                    <AdminProjectDetail onChange={this.handleProjectDetailChange} value={projectDetailValue} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Project Challenges</Label>
-                                    <AdminProjectChallenges onChange={this.handleProjectChallengesChange} />
+                                    <AdminProjectChallenges onChange={this.handleProjectChallengesChange} value={projectChallengesValue} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Project Likes</Label>
-                                    <AdminProjectLikes onChange={this.handleProjectLikesChange} />
+                                    <AdminProjectLikes onChange={this.handleProjectLikesChange} value={projectLikesValue} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Project Improvements</Label>
-                                    <AdminProjectImprov onChange={this.handleProjectImprovementsChange} />
+                                    <AdminProjectImprov onChange={this.handleProjectImprovementsChange} value={projectImprovementsValue} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Desktop Screen shot</Label>

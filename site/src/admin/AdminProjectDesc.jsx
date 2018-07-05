@@ -7,7 +7,7 @@ import { isKeyHotkey } from 'is-hotkey'
 
 import './styles/bio.css';
 
-const existingValue = JSON.parse(localStorage.getItem('projectDesc'))
+const existingValue = JSON.parse(localStorage.getItem('adminprojectDesc'))
 const initialValue = Value.fromJSON(
   existingValue || {
     document: {
@@ -41,6 +41,10 @@ const isCodeHotkey = isKeyHotkey('mod+`')
 
 class AdminProjectDesc extends Component{
 
+    constructor(props){
+      super(props)
+      this.onChange = this.onChange.bind(this);
+    }
     state= {
         value: this.props.value ? Value.fromJSON(JSON.parse(this.props.value)) : initialValue
     }
