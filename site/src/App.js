@@ -87,7 +87,8 @@ class App extends Component {
           {/* <PrivateRoute path="/admin/projects" component={AdminProjects} /> */}
           <Route path="/admin/profile/:id" component={AdminBio} />
           <Route path="/admin/skills" component={AdminSkills} />
-          <Route path="/admin/projects" component={AdminProjects} />
+          <Route exact path="/admin/projects" component={AdminProjects} />
+          <Route path="/admin/projects/:id" component={AdminProjects} />
           <Route component={ErrorPage} />
         </Switch>
       </Router>

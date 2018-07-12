@@ -7,6 +7,7 @@
 .desktop-image-container{
     height: 320px;
     position: relative;
+    overflow: hidden;
     img{
         position: relative;
         z-index: 0;

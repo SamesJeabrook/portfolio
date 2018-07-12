@@ -20,18 +20,9 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const skills = require('./routes/skills');
 const projects = require('./routes/projects');
+const mail = require('./routes/mail');
 
 const app = express();
-
-const storage = multer.diskStorage({
-  destination: './public/images',
-  filename: function(req, file, callback){
-    crypto.pseudoRandomBytes(16, (err, raw) => {
-      if(err) return callback(err);
-      callback(null, raw.toString('hex') + path.extname(file.originalname))
-    });
-  }
-});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -55,6 +46,7 @@ app.use('/api/', index);
 app.use('/api/user/', users);
 app.use('/api/skills/', skills);
 app.use('/api/projects/', projects);
+app.use('/api/mail', mail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

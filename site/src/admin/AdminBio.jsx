@@ -13,14 +13,34 @@ import AdminHeader from './AdminHeader';
 
 import Feedback from './Feedback';
 
+const DocumentSet = {
+    document: {
+        nodes: [
+            {
+                object: 'block',
+                type: 'paragraph',
+                nodes: [
+                    {
+                        object: 'text',
+                        leaves: [
+                            {
+                                text: ''
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
 
 class AdminBio extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            aboutMeValue : localStorage.getItem('aboutMe'),
-            aboutWorkValue : localStorage.getItem('aboutWork'),
+            aboutMeValue : localStorage.getItem('aboutMe')=== null ? JSON.stringify(DocumentSet) : localStorage.getItem('aboutMe'),
+            aboutWorkValue : localStorage.getItem('aboutWork') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('aboutWork'),
             profileId: props.match.params.id
         }
         this.handleAboutMeChange = this.handleAboutMeChange.bind(this);

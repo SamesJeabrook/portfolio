@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 require('../api/passport');
 
 const User = require('../models/user');
-const Skills = require('../models/skills');
 
 /* GET users listing. */
 
@@ -93,35 +92,6 @@ router.post('/bio/update', passport.authenticate('jwt', {session: false}), funct
       })
   }
 });
-
-// update skills list
-
-router.post('/update', passport.authenticate('jwt', {session: false}), function(req, res){
-  if(req.body.id){
-    console.log('updating skill id: ', req.body);
-  }else{
-    console.log('Creating new skill with: ', req.body);
-  }
-});
-
-// get all skills in list
-
-router.get('/list', function(req, res){
-  Skills.find({},(err, skills, info) => {
-    if(err){
-      res.status(400);
-      res.json({"status" : "fail", "message" : err})
-    }
-    if(skills){
-      res.status(200);
-      res.json({"status" : "success", "data": skills});
-    }else{
-      res.status(401);
-      res.json({"status" : "fail", "message" : info})
-    }
-
-  })
-})
 
 
 module.exports = router;

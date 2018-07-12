@@ -136,6 +136,14 @@ class AdminProjectDesc extends Component{
         this.onChange(change)
     }
 
+    componentWillReceiveProps(props){
+      if(JSON.stringify(this.state.value) !== props.value){
+        this.setState({
+          value: Value.fromJSON(JSON.parse(props.value))
+        })
+      }
+    }
+
     render(){
         return(
             

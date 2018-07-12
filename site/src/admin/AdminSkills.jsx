@@ -126,7 +126,7 @@ class AdminSkills extends Component{
         axios.post('/api/skills/delete', {id: id}, {headers: {'Authorization' : localStorage.jsToken}}).then((res) => {
             this.setState({
                 feedbackType: "info",
-                feedbackMsg: "Skill successfully deleted"
+                feedbackMsg: "Project successfully deleted"
             });
             setTimeout(() => {
                 this.setState({

@@ -7,15 +7,18 @@ class Menu extends Component {
     constructor(){
         super();
         this.state = {
-            openClass: ""
+            openClass: "",
+            displayMenu: false
         }
         this.toggleClickClass = this.toggleClickClass.bind(this);
     }
 
     toggleClickClass(){
         const clickClass = this.state.openClass === "open" ? "" : "open";
+        const displayMenu = this.state.displayMenu ? false : true;
         this.setState({
-            openClass: clickClass
+            openClass: clickClass,
+            displayMenu: displayMenu
         })
     }
 
@@ -27,7 +30,7 @@ class Menu extends Component {
                     <div className="line2"></div>
                     <div className="line3"></div>
                 </div>
-                <div className={`menu ${this.state.openClass}`}>
+                {this.state.displayMenu ? <div className={`menu ${this.state.openClass}`}>
                     <span className="vertical-align"></span>
                     <div className="menu-content">
                         <ul>
@@ -35,7 +38,7 @@ class Menu extends Component {
                             <li><Link to="/Projects">Projects</Link></li>
                         </ul>
                     </div>
-                </div>
+                </div> : false}
             </div>
         )
     }

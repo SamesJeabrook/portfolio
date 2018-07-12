@@ -3,7 +3,8 @@
 
 .desktop-image-container {
   height: 320px;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .desktop-image-container img {
     position: relative;
     z-index: 0; }
