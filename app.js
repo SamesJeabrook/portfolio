@@ -51,11 +51,11 @@ app.use('/api/mail', mail);
 // app.use('/api/cv', cv);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  const err = new Error('Not Found '+ req.originalUrl);
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   const err = new Error('Not Found '+ req.originalUrl);
+//   err.status = 404;
+//   next(err);
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
