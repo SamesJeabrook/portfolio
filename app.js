@@ -21,6 +21,7 @@ const users = require('./routes/users');
 const skills = require('./routes/skills');
 const projects = require('./routes/projects');
 const mail = require('./routes/mail');
+const cv = require('./routes/cv');
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use('/api/user/', users);
 app.use('/api/skills/', skills);
 app.use('/api/projects/', projects);
 app.use('/api/mail', mail);
+app.use('/api/cv', cv);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

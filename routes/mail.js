@@ -25,12 +25,12 @@ router.post('/send', passport.authenticate('jwt', {session: false}), function(re
 
         transporter.sendMail(emailOptions, function(error, info){
             if(error){
-                res.status(400),
+                res.status(400);
                 res.json({"status": "fail", "message": "Failed to send email"});
                 console.log(error);
             }else{
                 res.status(200);
-                res.json("status": "success", "message": "Message sent");
+                res.json({"status": "success", "message": "Message sent"});
                 console.log("Email sent: "+info.response);
             }
         })

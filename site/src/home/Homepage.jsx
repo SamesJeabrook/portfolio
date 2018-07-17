@@ -22,9 +22,15 @@ class Homepage extends Component {
     this.showPage = this.showPage.bind(this);
   }
 
+  printClick(){
+    window.frames['CV'].focus();
+    window.frames['CV'].print();
+  }
+
   showPage(){
     this.setState({
       isFinishedHomeAnimation: true
+
     })
   }
 
@@ -38,9 +44,10 @@ class Homepage extends Component {
             <PersonalStatement userBio={this.props.userBio} />
             <ProjectsBar />
             <Locker />
-            <CVBar />
+            <CVBar printClick={this.printClick} />
             <ContactMe />
             <Footer />
+            <iframe id="CV" name="CV" src='/jamesCV.html' frameBorder="0"></iframe>
         </div>
       )
     }
