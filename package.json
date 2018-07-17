@@ -6,6 +6,7 @@
     "server": "nodemon ./bin/www",
     "client": "cd site && npm start",
     "dev": "concurrently --kill-others-on-fail \" npm run server \" \" npm run client \" ",
+    "start": "nodemon ./bin/www",
     "heroku-postbuild": "cd site && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
