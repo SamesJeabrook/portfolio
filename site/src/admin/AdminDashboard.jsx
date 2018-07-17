@@ -82,7 +82,7 @@ class AdminDashboard extends Component{
                                 </div>
                             </Link>
                         </div>
-                        <div className="col-12 col-sm-6 col-md-3">
+                        {/* <div className="col-12 col-sm-6 col-md-3">
                             <Link to={'admin/updateCV'}>
                                 <div className="admin-route">
                                     <div className="icon-container">
@@ -93,7 +93,7 @@ class AdminDashboard extends Component{
                                     </div>
                                 </div>
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
