@@ -71,7 +71,7 @@ app.use(function(err, req, res, next) {
 
 if(process.env.NODE_ENV === 'production'){
   app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'site/public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'site/src', 'index.js'));
   });
 }
 
