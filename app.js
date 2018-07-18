@@ -69,9 +69,9 @@ app.use(function(err, req, res, next) {
   res.send('error');
 });
 
-app.use(express.static(path.resolve(__dirname, '../site/build')));
-
 if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.resolve(__dirname, '../site/build')));
+  
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'site/build', 'index.html'));
   });
