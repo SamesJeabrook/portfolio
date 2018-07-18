@@ -25,7 +25,7 @@ const mail = require('./routes/mail');
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '../site/build')));
+app.use(express.static(path.resolve(__dirname, 'site/build')));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
