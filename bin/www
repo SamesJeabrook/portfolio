@@ -13,11 +13,11 @@ var http = require('http');
  */
 
 // Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+app.use(express.static(path.resolve(__dirname, '../site/build')));
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
+  response.sendFile(path.resolve(__dirname, '../site/build', 'index.html'));
 });
 
 var port = normalizePort(process.env.PORT || '5000');
