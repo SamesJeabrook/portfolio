@@ -25,6 +25,8 @@ const mail = require('./routes/mail');
 
 const app = express();
 
+app.use(express.static(path.resolve(__dirname, '../site/build')));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 mongoose.connect(process.env.MONGOURI);
@@ -70,8 +72,7 @@ app.use(function(err, req, res, next) {
 });
 
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.resolve(__dirname, '../site/build')));
-  
+
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'site/build', 'index.html'));
   });
