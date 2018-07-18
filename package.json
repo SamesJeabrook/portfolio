@@ -7,7 +7,7 @@
     "client": "cd site && npm start",
     "dev": "concurrently --kill-others-on-fail \" npm run server \" \" npm run client \" ",
     "start": "nodemon ./bin/www",
-    "heroku-postbuild": "cd site && npm install && npm run build css && npm start && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd site && npm install && npm run build css && npm run build && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "bcrypt": "^2.0.1",
