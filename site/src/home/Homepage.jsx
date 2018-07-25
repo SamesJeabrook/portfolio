@@ -30,7 +30,6 @@ class Homepage extends Component {
   showPage(){
     this.setState({
       isFinishedHomeAnimation: true
-
     })
   }
 
