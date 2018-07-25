@@ -80,15 +80,15 @@ class Intro extends Component {
                                 <path className="st0 animate" d="M733.5,403.5 818.5,419.5 544.5,444.5 466.5,423.5 731.5,404.5 " />
                                 <path className="st0 animate" d="M726.5,455.5 659.5,439.5 763.5,430.5 832.5,444.5 730.5,455.5 " />
                                 <path className="st0 animate" d="M372.5,150.5 409.5,403.5 726.5,384.5 688.5,166.5 375.5,151.5 " />
-                                <path className="st0 animate" points="-1.5,530.5 338.5,631.5 967.5,465.5 " />
-                                <path className="st0 animate" points="-0.5,616.5 260.5,719.5 262,608.8 " />
+                                <path className="st0 animate" d="M0,530.5 338.5,631.5 967.5,465.5" />
+                                <path className="st0 animate" d="M0,616.5 260.5,719.5 262,608.8" />
                                 <path className="st0 animate" d="M967.5,529.5 424.5,719.5 424.5,608.8 " />
                                 <path className="st0 animate" d="M339.5,631.5L339.5,725.5"/>
                                 <path className="st0 animate" d="M967.5,348.5L726.5,327"/>
                                 <path className="st0 animate" d="M205.5,324.5l7,105c35.7,8,62.9,6.8,82-3l6-103c-6.8-8-74.2-7.8-95-3c-3.6,6.3,79.2,6.2,92,4" />
                                 <path className="st0 animate" d="M-1.5,376.5L207.8,359.3"/>
                                 <path className="st0 animate" d="M299,350L384,340.3"/>
-                                <path className="st0 animate" points="-0.5,495.5 337.5,589.5 910.5,455.5 " />
+                                <path className="st0 animate" d="M0,495.5 337.5,589.5 910.5,455.5" />
                                 <path className="st0 animate" d="M963.5,444.5v-8l-223-39l-44.5-239c-1.4-5.3-4.4-8.5-9.7-8.5l-321.8-19.8c-6.9,0.3-10.2,4.2-10,11.9l1,6.4" />
                             </svg>
 
