@@ -55,17 +55,20 @@ img{
     }
 
     .project-item{
-        h3, p{
+        h3, p, a{
             font-weight: 200;
             color: #666;
         }
         &:hover{
-            h3,p{
-                color: #333;
-            }
+            color: #333;
+            text-decoration: none;
             img{
                 opacity: 1;
             }
+        }
+        a:hover{
+            color: #333;
+            text-decoration: none;
         }
     }
 

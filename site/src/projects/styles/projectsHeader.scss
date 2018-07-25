@@ -8,13 +8,13 @@
     position: relative;
 
     .header-image{
-        max-width: 100%;
+        min-width: 100%;
         position: absolute;
         top: 0;
         left: 0;
 
         img{
-            max-width: 100%;
+            min-width: 100%;
             min-height: 100%;
         }
     }

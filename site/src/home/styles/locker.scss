@@ -49,13 +49,6 @@ td{
 //   transition: 0.25s;
 //   transition-delay: 1s; // removed the delay as it makes a pop in the wave which looks worse than the transition
 }
-  
-@for $i from 1 through 480 {
-  .waveLine:nth-child(#{$i}){
-    animation-delay:($delay*$i)+s;
-    left: ($size*$i)+px;
-  }
-}
 
 @keyframes wave {
   0%{
@@ -69,6 +62,12 @@ td{
 @media (min-width: 768px) {
     .skills-container__glass-contents{
         bottom: 45px;
+    }
+    @for $i from 1 through 480 {
+        .waveLine:nth-child(#{$i}){
+          animation-delay:($delay*$i)+s;
+          left: ($size*$i)+px;
+        }
     }
 }
 

@@ -7,12 +7,12 @@
   overflow: hidden;
   position: relative; }
   .projects-header .header-image {
-    max-width: 100%;
+    min-width: 100%;
     position: absolute;
     top: 0;
     left: 0; }
     .projects-header .header-image img {
-      max-width: 100%;
+      min-width: 100%;
       min-height: 100%; }
   .projects-header .header-image:before {
     content: '';
