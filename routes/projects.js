@@ -22,7 +22,7 @@ const upload = multer({ storage });
 
 // update - create Projects list
 
-router.post('/update', upload.fields([
+router.post('/update', passport.authenticate('jwt', {session: false}), upload.fields([
         {name: 'projectImageDesktop', maxCount: 1},
         {name: 'projectImageMobile', maxCount: 1},
         {name: 'projectScreenshot1', maxCount: 1},

@@ -83,15 +83,15 @@ class App extends Component {
           <Route path="/project/:id" component={Project} />
           <Route exact path="/admin" component={LoginRoute} />
           <PrivateRoute path="/admin/dashboard" component={AdminDashboard} />
-          {/* <PrivateRoute path="/admin/profile/:id" component={AdminBio} /> */}
-          {/* <PrivateRoute path="/admin/skills" component={AdminSkills} /> */}
-          {/* <PrivateRoute path="/admin/projects" component={AdminProjects} /> */}
-          {/* <PrivateRoute path="/admin/cv" component={AdminCv} /> */}
+          <PrivateRoute path="/admin/profile/:id" component={AdminBio} />
+          <PrivateRoute path="/admin/skills" component={AdminSkills} />
+          <PrivateRoute path="/admin/projects" component={AdminProjects} />
+          {/* <PrivateRoute path="/admin/cv" component={AdminCv} />
           <Route path="/admin/profile/:id" component={AdminBio} />
           <Route path="/admin/skills" component={AdminSkills} />
           <Route exact path="/admin/projects" component={AdminProjects} />
           <Route path="/admin/projects/:id" component={AdminProjects} />
-          <Route path="/admin/cv" component={AdminCV} />
+          <Route path="/admin/cv" component={AdminCV} /> */}
           <Route component={ErrorPage} />
         </Switch>
       </Router>
