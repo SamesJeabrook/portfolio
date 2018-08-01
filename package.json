@@ -8,7 +8,7 @@
     "dev": "concurrently --kill-others-on-fail \" npm run server \" \" npm run client \" ",
     "start": "node ./bin/www",
     "heroku-postbuild": "cd site/ && npm install && npm run build css && npm run build && npm install --only=dev --no-shrinkwrap && npm run build",
-    "prestart": "cd site/ && npm install && npm run build css && npm run build && npm install --only=dev --no-shrinkwrap && npm run build"
+    "postinstall": "cd site/ && npm install && npm run build css && npm run build && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "bcrypt": "^2.0.1",
