@@ -4,23 +4,35 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
+let smtpConfig = {
+    host: 'send.one.com',
+    port: 465,
+    secure: true,
     auth: {
-        user: 'myEmail@me.com',
-        pass: "My password"
+        user: 'its-me@jamesseabrook.com',
+        pass: 'Archer0201'
     }
-})
+}
+
+const transporter = nodemailer.createTransport(smtpConfig);
+
+transporter.verify(function(error, success) {
+    if (error) {
+         console.log(error);
+    } else {
+         console.log('Server is ready to take our messages');
+    }
+ });
 
 // send email
 
-router.post('/send', passport.authenticate('jwt', {session: false}), function(req, res){
+router.post('/send', function(req, res){
     if(req.body){
         const emailOptions = {
-            from: req.body.geezersEmail,
-            to: "myEmail@me.com",
+            from: "its-me@jamesseabrook.com",
+            to: "its-me@jamesseabrook.com",
             subject: "Message from "+req.body.geezersName+". Wants to talk about: "+req.body.geezersSubject,
-            html: "<p>" + req.body.geezersDescription + "<p/>"
+            html: "<p>" + req.body.geezersDescription + "<p/><p>Email: "+req.body.geezersEmail+"</p>"
         }
 
         transporter.sendMail(emailOptions, function(error, info){

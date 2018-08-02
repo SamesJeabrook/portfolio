@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import isEmpty from 'lodash/isEmpty';
+import axios from 'axios';
 
 // styles
 
@@ -63,14 +64,23 @@ class ContactMe extends Component {
         if(errorCount === 0){
             if(!isEmpty(this.state.email)){
                 console.log("Post these details to email", this.state)
-                this.setState({
-                    successMessage: "Thanks, I'll be in touch as soon as possible."
-                });
-                window.setTimeout(() => {
+                axios.post('/api/mail/send', this.state.email).then((res) => {
                     this.setState({
-                        successMessage : null
-                    })
-                }, 3000)
+                        successMessage: "Thanks, I'll be in touch as soon as possible."
+                    });
+                    window.setTimeout(() => {
+                        this.setState({
+                            successMessage : null
+                        })
+                    }, 3000)
+                }, (res) => {
+                    let errorMessages = this.state.errorMessages;
+                    errorMessages['error_notsent'] = "Unable to send email at this time";
+                    this.setState({
+                        errorMessages : errorMessages
+                    });
+                    console.log(res);
+                })
             }else{
                 errorMessages = this.state.errorMessages;
                 errorMessages["error_form"] = "Check the form again, I think you missed something";
