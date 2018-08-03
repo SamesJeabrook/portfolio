@@ -85,40 +85,49 @@ class Locker extends Component {
         this.setSkillsHeightandColourIndividual(skill);
     }
 
+    setSkillsFallback(){
+        this.setState({
+            skillsetPercent : {
+                html5 : 100,
+                css: 100,
+                javascript: 80,
+                react: 75,
+                node: 25,
+                sass: 70
+            },
+            skillsetColours : {
+                html5 : '#fff',
+                css: '#fff',
+                javascript: '#fff',
+                react: '#fff',
+                node: '#fff',
+                sass: '#fff'
+            }
+        });
+    }
+
     retrieveSkills(){
         axios.get('/api/skills/list').then((res) => {
             let skillsetPercent = {};
             let skillsetColours = {};
-            res.data.data.map((item, index) => {
-                skillsetPercent[item.skillName] = item.skillPercent;
-                skillsetColours[item.skillName] = "#fff";
+            if(res.data.data.length > 0){
+                res.data.data.map((item, index) => {
+                    skillsetPercent[item.skillName] = item.skillPercent;
+                    skillsetColours[item.skillName] = "#fff";
 
-            })
-            this.setState({
-                skillsetPercent: skillsetPercent,
-                skillsetColours: skillsetColours
-            });
-            console.log(this.state);
+                })
+                this.setState({
+                    skillsetPercent: skillsetPercent,
+                    skillsetColours: skillsetColours
+                });
+                console.log(this.state);
+            }else{
+                this.setSkillsFallback();
+            }
             this.setSkillsHeightandColour();
+            
         }, (res) => {
-            this.setState({
-                skillsetPercent : {
-                    html5 : 100,
-                    css: 100,
-                    javascript: 80,
-                    react: 75,
-                    node: 25,
-                    sass: 70
-                },
-                skillsetColours : {
-                    html5 : '#fff',
-                    css: '#fff',
-                    javascript: '#fff',
-                    react: '#fff',
-                    node: '#fff',
-                    sass: '#fff'
-                }
-            });
+            this.setSkillsFallback();
             this.setSkillsHeightandColour();
         })
     }

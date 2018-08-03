@@ -8,6 +8,28 @@ require('../api/passport');
 
 const User = require('../models/user');
 
+router.get('/setup', function(req, res){
+  var me = new User()
+  
+  me.userName = 'samesJeabrook';
+  me.email = 'james.seabrook77@googlemail.com';
+
+  me.setPassword('fucksake');
+
+  me.save(function(err){
+      let token;
+      if(err){
+          res.status(400);
+          res.json({"status" : "fail", "message" : err});
+      }else{
+          token = User.generateJwt();
+          res.status(200);
+          res.json({"status" : "success", "token" : token });
+      }
+      console.log('User saved successfully');
+  })
+});
+
 /* GET users listing. */
 
 router.get('/', function(req, res){
@@ -43,7 +65,6 @@ router.post('/login', function(req, res){
           res.json({"status" : "success", "token" : "bearer "+token });
 
       }else{
-          console.log(res);
           res.status(401);
           res.json({"status" : "fail", "message" : info });
       }

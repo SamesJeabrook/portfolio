@@ -39,8 +39,8 @@ class AdminBio extends Component{
     constructor(props){
         super(props);
         this.state = {
-            aboutMeValue : localStorage.getItem('aboutMe')=== null ? JSON.stringify(DocumentSet) : localStorage.getItem('aboutMe'),
-            aboutWorkValue : localStorage.getItem('aboutWork') === null ? JSON.stringify(DocumentSet) : localStorage.getItem('aboutWork'),
+            aboutMeValue : localStorage.getItem('aboutMe')=== null ? JSON.stringify(DocumentSet) : JSON.parse(localStorage.getItem('aboutMe')),
+            aboutWorkValue : localStorage.getItem('aboutWork') === null ? JSON.stringify(DocumentSet) : JSON.parse(localStorage.getItem('aboutWork')),
             profileId: props.match.params.id
         }
         this.handleAboutMeChange = this.handleAboutMeChange.bind(this);
@@ -87,11 +87,13 @@ class AdminBio extends Component{
 
     retrieveBio(){
         axios.get('/api/user/bio/samesJeabrook').then((res) => {
-            this.setState({
-                aboutMeValue: res.data.data.aboutMe,
-                aboutWorkValue: res.data.data.aboutWork,
-                tagLine: res.data.data.tagLine
-            });
+            if(res.data.data.aboutMe && res.data.data.aboutWork && res.data.data.tagline){
+                this.setState({
+                    aboutMeValue: res.data.data.aboutMe,
+                    aboutWorkValue: res.data.data.aboutWork,
+                    tagLine: res.data.data.tagLine
+                });
+            }
         }, (res) => {
             this.setState({
                 feedbackType: "danger",

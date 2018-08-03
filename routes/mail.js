@@ -1,3 +1,4 @@
+require('dotenv').config({path: __dirname+'/.env'});
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -9,8 +10,8 @@ let smtpConfig = {
     port: 465,
     secure: true,
     auth: {
-        user: 'its-me@jamesseabrook.com',
-        pass: 'Archer0201'
+        user: process.env.CONTACT_EMAIL,
+        pass: process.env.CONTACT_EMAIL_PASS
     }
 }
 
@@ -59,7 +60,7 @@ router.post('/send', function(req, res){
                                     '<meta http-equiv="X-UA-Compatible" content="ie=edge">'+
                                     '<title>Thanks for getting in touch</title>'+
                                 '</head>'+
-                                '<style>body{background:#ededed; padding: 100px}table{width:500px;margin:auto;background:#fff;text-align:center}h1{font-weight:200}td{padding:10px;}a{color:#212529;}</style>'+
+                                '<style>body{background:#ededed; padding: 100px}table{width:500px;margin:auto;background:#fff;text-align:center}h1{font-weight:200}td{padding:10px;}a{color:#ff75f8;}</style>'+
                                 '<body style="background: #ededed; padding: 10px; font-family: Arial, Helvetica, sans-serif;">'+
                                     '<table style="width:500px;margin:auto;background:#fff;text-align:center">'+
                                         '<tr>'+
@@ -69,7 +70,7 @@ router.post('/send', function(req, res){
                                             '<td style="padding:10px;"><p>I\'ll be in touch soon and we can talk more about '+req.body.geezersSubject+'</p></td>'+
                                         '</tr>'+
                                         '<tr>'+
-                                            '<td style="padding:10px;"><p>In the meantime you can view some of <a href="http://jamesseabrook.com/projects" style="color:#212529;">my projects</a> on my portfolio to get some inspiration</p></td>'+
+                                            '<td style="padding:10px;"><p>In the meantime you can view some of <a href="http://jamesseabrook.com/projects" style="color:#ff75f8;">my projects</a> on my portfolio to get some inspiration</p></td>'+
                                         '</tr>'+
                                     '</table>'+
                                 '</body>'+
