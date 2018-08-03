@@ -27,15 +27,69 @@ transporter.verify(function(error, success) {
 // send email
 
 router.post('/send', function(req, res){
+    const MeEmailTemplate = '<!DOCTYPE html>'+
+                            '<html lang="en">'+
+                            '<head>'+
+                                '<meta charset="UTF-8">'+
+                                '<meta name="viewport" content="width=device-width, initial-scale=1.0">'+
+                                '<meta http-equiv="X-UA-Compatible" content="ie=edge">'+
+                                '<title>'+req.body.geezersSubject+'</title>'+
+                            '</head>'+
+                            '<style>body{background:#ededed; padding: 100px}table{width:500px;margin:auto;background:#fff;text-align:center}h1{font-weight:200}td{padding:10px;}</style>'+
+                            '<body style="background:#ededed; padding: 100px; font-family: Arial, Helvetica, sans-serif;">'+
+                                '<table style="width:500px;margin:auto;background:#fff;text-align:center">'+
+                                    '<tr>'+
+                                        '<td style="padding:10px;"><h1 style="font-weight:200">Subject title: '+req.body.geezersSubject+'</h1></td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td style="padding:10px;"><p>Email from: '+req.body.geezersName+', email: '+req.body.geezersEmail+'</p></td>'+
+                                    '</tr>'+
+                                    '<tr>'+
+                                        '<td style="padding:10px;"><p>'+req.body.geezersDescription+'</p></td>'+
+                                    '</tr>'+
+                                '</table>'+
+                            '</body>'+
+                            '</html>';
+
+    const ThemEmailTemplate = '<!DOCTYPE html>'+
+                                '<html lang="en">'+
+                                '<head>'+
+                                    '<meta charset="UTF-8">'+
+                                    '<meta name="viewport" content="width=device-width, initial-scale=1.0">'+
+                                    '<meta http-equiv="X-UA-Compatible" content="ie=edge">'+
+                                    '<title>Thanks for getting in touch</title>'+
+                                '</head>'+
+                                '<style>body{background:#ededed; padding: 100px}table{width:500px;margin:auto;background:#fff;text-align:center}h1{font-weight:200}td{padding:10px;}a{color:#212529;}</style>'+
+                                '<body style="background: #ededed; padding: 10px; font-family: Arial, Helvetica, sans-serif;">'+
+                                    '<table style="width:500px;margin:auto;background:#fff;text-align:center">'+
+                                        '<tr>'+
+                                            '<td style="padding:10px;"><h1>Thanks '+req.body.geezersName+' for getting in touch.</h1></td>'+
+                                        '</tr>'+
+                                        '<tr>'+
+                                            '<td style="padding:10px;"><p>I\'ll be in touch soon and we can talk more about '+req.body.geezersSubject+'</p></td>'+
+                                        '</tr>'+
+                                        '<tr>'+
+                                            '<td style="padding:10px;"><p>In the meantime you can view some of <a href="http://jamesseabrook.com/projects" style="color:#212529;">my projects</a> on my portfolio to get some inspiration</p></td>'+
+                                        '</tr>'+
+                                    '</table>'+
+                                '</body>'+
+                                '</html>';
     if(req.body){
-        const emailOptions = {
+        const meEmailOptions = {
             from: "its-me@jamesseabrook.com",
             to: "its-me@jamesseabrook.com",
             subject: "Message from "+req.body.geezersName+". Wants to talk about: "+req.body.geezersSubject,
-            html: "<p>" + req.body.geezersDescription + "<p/><p>Email: "+req.body.geezersEmail+"</p>"
+            html: MeEmailTemplate
         }
 
-        transporter.sendMail(emailOptions, function(error, info){
+        const themEmailOptions = {
+            from: "its-me@jamesseabrook.com",
+            to: req.body.geezersEmail,
+            subject: "Thanks for getting in touch over at jamesseabrook.com",
+            html: ThemEmailTemplate
+        }
+
+        transporter.sendMail(meEmailOptions, function(error, info){
             if(error){
                 res.status(400);
                 res.json({"status": "fail", "message": "Failed to send email"});
@@ -44,8 +98,16 @@ router.post('/send', function(req, res){
                 res.status(200);
                 res.json({"status": "success", "message": "Message sent"});
                 console.log("Email sent: "+info.response);
+                transporter.sendMail(themEmailOptions, function(error, info){
+                    if(error){
+                        console.log("Email to sender fail: ",error);
+                    }else{
+                        console.log("Email to sender sent: "+info.response);
+                    }
+                });
             }
-        })
+        });
+
     }else{
         res.status(500)
         res.json({"status": "fail", "message": "No fields for sending"})

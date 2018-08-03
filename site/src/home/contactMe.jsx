@@ -66,7 +66,8 @@ class ContactMe extends Component {
                 console.log("Post these details to email", this.state)
                 axios.post('/api/mail/send', this.state.email).then((res) => {
                     this.setState({
-                        successMessage: "Thanks, I'll be in touch as soon as possible."
+                        successMessage: "Thanks, I'll be in touch as soon as possible.",
+                        errorMessages: {}
                     });
                     window.setTimeout(() => {
                         this.setState({
@@ -105,7 +106,7 @@ class ContactMe extends Component {
             break;
             case 'email':
                 const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(regex.test(String(val).toLowerCase())) { e.target.classList.remove('fake_news') }else{ e.target.classList.add('fake_news'); emailClone[e.target.name] = val };
+                if(regex.test(String(val).toLowerCase())) { e.target.classList.remove('fake_news'); emailClone[e.target.name] = val; }else{ e.target.classList.add('fake_news');};
             break;
             case 'textarea':
                 if(val < 10) { e.target.classList.add('fake_news') }else{ e.target.classList.remove('fake_news'); emailClone[e.target.name] = val };
