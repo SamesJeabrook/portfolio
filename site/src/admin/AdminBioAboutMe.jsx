@@ -42,7 +42,7 @@ const isCodeHotkey = isKeyHotkey('mod+`')
 class AboutMe extends Component{
 
     state= {
-        value: this.props.value ? Value.fromJSON(this.props.value) : initialValue
+        value: this.props.value ? typeof this.props.value == 'object' ? Value.fromJSON(this.props.value) : Value.fromJSON(JSON.parse(this.props.value)) : initialValue
     }
 
     hasMark = type => {

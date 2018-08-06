@@ -168,6 +168,7 @@ class AdminProjects extends Component {
         formData.append('projectLikes', projectLikesValue);
         formData.append('projectImprovements', projectImprovements);
         formData.append('projectLinkTo', projectLinkTo);
+        formData.append('projectHeroImage', projectHeroImage);
         formData.append('projectImageDesktop', projectImageDesktop);
         formData.append('projectImageMobile', projectImageMobile);
         formData.append('projectScreenshot1', projectScreenshot1);
