@@ -30,9 +30,9 @@ class Project extends Component {
                 shortDescription: data.projectDescShort && data.projectDescShort !== "undefined" ? data.projectDescShort : null,
                 imgDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,
                 imgMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
-                imgScreenshot1: data.projectImageScreenshot1 && data.projectImageScreenshot1 !== "undefined" ? data.projectImageScreenshot1 : null,
-                imgScreenshot2: data.projectImageScreenshot2 && data.projectImageScreenshot2 !== "undefined" ? data.projectImageScreenshot2 : null,
-                imgScreenshot3: data.projectImageScreenshot3 && data.projectImageScreenshot3 !== "undefined" ? data.projectImageScreenshot3 : null
+                imgScreenshot1: data.projectScreenshot1 && data.projectScreenshot1 !== "undefined" ? data.projectScreenshot1 : null,
+                imgScreenshot2: data.projectScreenshot2 && data.projectScreenshot2 !== "undefined" ? data.projectScreenshot2 : null,
+                imgScreenshot3: data.projectScreenshot3 && data.projectScreenshot3 !== "undefined" ? data.projectScreenshot3 : null
             });
         }, (e) => {
             this.setState({

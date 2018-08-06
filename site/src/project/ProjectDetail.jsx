@@ -229,7 +229,7 @@ class ProjectDetail extends Component {
                         </div>
                     </div>
                     {imgDesktop || imgMobile ? 
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 screenshot-container">
                             {imgDesktop ? 
                                 <div className="desktop-image-container">
                                     <div className="desktop-surround-image">
@@ -266,6 +266,20 @@ class ProjectDetail extends Component {
                             <div dangerouslySetInnerHTML={{ __html: this.renderHtml(improvements) }}></div>
                         </div>
                     :null }
+                </div>
+                <div className="row">
+                      <div className="col-12 additional-screenshots">
+                        <h2>Additional Screenshots</h2>
+                        {imgScreenshot1? 
+                          <img className="img-thumbnail" src={this.setStaticImagePath(imgScreenshot1)} alt=""/>
+                        : null}
+                        {imgScreenshot2? 
+                          <img className="img-thumbnail" src={this.setStaticImagePath(imgScreenshot2)} alt=""/>
+                        : null}
+                        {imgScreenshot3? 
+                          <img className="img-thumbnail" src={this.setStaticImagePath(imgScreenshot3)} alt=""/>
+                        : null}
+                      </div>
                 </div>
             </div>
         )

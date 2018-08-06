@@ -2,11 +2,21 @@
     h2, h3, p{
         font-weight: 200;
     }
+    .screenshot-container{
+        min-height: 500px;
+    }
+}
+
+.additional-screenshots{
+    img{
+        margin-top: 10px;
+    }
 }
 
 .desktop-image-container{
     height: 320px;
-    position: relative;
+    width: 100%;
+    position: absolute;
     overflow: hidden;
     img{
         position: relative;
@@ -35,6 +45,7 @@
     overflow: hidden;
     img{
         max-width: 100%;
+        padding: 0;
     }
 }
 
@@ -55,7 +66,7 @@
     }
     .phone-image-container{
         right: 10%;
-        top: 30%;
+        top: 15%;
     }
 }
 
@@ -65,6 +76,6 @@
     }
     .phone-image-container{
         right: 20%;
-        top: 60%;
+        top: 40%;
     }
 }

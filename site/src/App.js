@@ -86,6 +86,7 @@ class App extends Component {
           <PrivateRoute path="/admin/profile/:id" component={AdminBio} />
           <PrivateRoute path="/admin/skills" component={AdminSkills} />
           <PrivateRoute path="/admin/projects" component={AdminProjects} />
+          <PrivateRoute path="/admin/projects/:id" component={AdminProjects} />
           {/* <PrivateRoute path="/admin/cv" component={AdminCv} />
           <Route path="/admin/profile/:id" component={AdminBio} />
           <Route path="/admin/skills" component={AdminSkills} />

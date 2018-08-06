@@ -71,7 +71,7 @@ class AdminDashboard extends Component{
                             </Link>
                         </div>
                         <div className="col-12 col-sm-6 col-md-3">
-                            <Link to={'admin/projects'}>
+                            <Link to={'/admin/projects'}>
                                 <div className="admin-route">
                                     <div className="icon-container">
                                         <i className="js-icon js-presentation-code-1"></i>

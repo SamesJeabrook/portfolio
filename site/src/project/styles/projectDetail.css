@@ -1,9 +1,16 @@
 .project-detail h2, .project-detail h3, .project-detail p {
   font-weight: 200; }
 
+.project-detail .screenshot-container {
+  min-height: 500px; }
+
+.additional-screenshots img {
+  margin-top: 10px; }
+
 .desktop-image-container {
   height: 320px;
-  position: relative;
+  width: 100%;
+  position: absolute;
   overflow: hidden; }
   .desktop-image-container img {
     position: relative;
@@ -28,7 +35,8 @@
   z-index: 3;
   overflow: hidden; }
   .phone-image-container img {
-    max-width: 100%; }
+    max-width: 100%;
+    padding: 0; }
 
 .phone-surround-image {
   background: url("../images/phoneSurround.png") center center no-repeat;
@@ -45,11 +53,11 @@
     height: 275px; }
   .phone-image-container {
     right: 10%;
-    top: 30%; } }
+    top: 15%; } }
 
 @media (min-width: 992px) {
   .desktop-image-container {
     height: 390px; }
   .phone-image-container {
     right: 20%;
-    top: 60%; } }
+    top: 40%; } }

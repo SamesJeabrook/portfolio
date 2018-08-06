@@ -62,6 +62,7 @@ class AdminProjects extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleProjectDelete = this.handleProjectDelete.bind(this);
         this.setStaticImagePath = this.setStaticImagePath.bind(this);
+        this.handleSetProjectId = this.handleSetProjectId.bind(this);
     }
 
     handleProjectDescChange({value}){
@@ -124,6 +125,14 @@ class AdminProjects extends Component {
         this.setState({
             [e.target.name]: e.target.value
         });
+    }
+
+    handleSetProjectId(e){
+        const id = e.target.parentElement.dataset.id;
+        this.setState({
+            projectId: id
+        })
+        this.retrieveProjectItem(id);
     }
 
     handleSubmit(e){
@@ -236,8 +245,8 @@ class AdminProjects extends Component {
         });
     }
 
-    retrieveProjectItem(){
-        axios.get(`/api/projects/item/${this.state.projectId}`).then((res) => {
+    retrieveProjectItem(id){
+        axios.get(`/api/projects/item/${id}`).then((res) => {
             const data = res.data.data;
             this.setState({
                 projectDescValue: data.projectDesc && data.projectDesc !== "undefined" ? data.projectDesc : JSON.stringify(DocumentSet),
@@ -277,9 +286,6 @@ class AdminProjects extends Component {
 
     componentWillMount(){
         this.retreiveProjectsList();
-        if(this.state.projectId){
-            this.retrieveProjectItem();
-        }
     }
 
     render(){
@@ -382,7 +388,7 @@ class AdminProjects extends Component {
                         <div className="col-12 col-md-6">
                             <h3>Existing Projects</h3>
                             <a href="/admin/projects/"><Button>Create new Project</Button></a>
-                            <AdminProjectsList listData={projectsList} handleDelete={this.handleProjectDelete}/>
+                            <AdminProjectsList listData={projectsList} handleDelete={this.handleProjectDelete} handleProjectSelect={this.handleSetProjectId}/>
                         </div>
                     </div>
                 </div>
