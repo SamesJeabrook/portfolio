@@ -147,6 +147,7 @@ class AdminProjects extends Component {
             projectLikesValue,
             projectImprovements,
             projectLinkTo,
+            projectHeroImage,
             projectImageDesktop,
             projectImageMobile,
             projectScreenshot1,
@@ -257,6 +258,7 @@ class AdminProjects extends Component {
                 projectTitle: data.projectTitle && data.projectTitle !== "undefined" ? data.projectTitle : null,
                 projectLinkTo: data.projectLinkTo && data.projectLinkTo !== "undefined" ? data.projectLinkTo : null,
                 projectDescShort: data.projectDescShort && data.projectDescShort !== "undefined" ? data.projectDescShort : null,
+                projectHeroImage: data.projectHeroImage && data.projectHeroImage !== "undefined" ? data.projectHeroImage : null,
                 projectImageDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,
                 projectImageMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
                 projectImageScreenshot1: data.projectImageScreenshot1 && data.projectImageScreenshot1 !== "undefined" ? data.projectImageScreenshot1 : null,
@@ -301,6 +303,7 @@ class AdminProjects extends Component {
             projectTitle,
             projectLinkTo,
             projectsList,
+            projectHeroImage,
             projectImageDesktop,
             projectImageMobile,
             projectImageScreenshot1,
@@ -356,6 +359,11 @@ class AdminProjects extends Component {
                                 <FormGroup>
                                     <Label>Project Improvements</Label>
                                     <AdminProjectImprov onChange={this.handleProjectImprovementsChange} value={projectImprovementsValue} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label>Hero Image</Label>
+                                    <Input type="file" onChange={this.handleFileChange} name="projectHeroImage"/>
+                                    {projectHeroImage ? <img src={this.setStaticImagePath(projectHeroImage)} alt="Hero Image"/> : null }
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Desktop Screen shot</Label>

@@ -28,6 +28,7 @@ class Project extends Component {
                 title: data.projectTitle && data.projectTitle !== "undefined" ? data.projectTitle : null,
                 link: data.projectLinkTo && data.projectLinkTo !== "undefined" ? data.projectLinkTo : null,
                 shortDescription: data.projectDescShort && data.projectDescShort !== "undefined" ? data.projectDescShort : null,
+                imgHero: data.projectHeroImage && data.projectHeroImage !== "undefined" ? data.projectHeroImage : null,
                 imgDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,
                 imgMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
                 imgScreenshot1: data.projectScreenshot1 && data.projectScreenshot1 !== "undefined" ? data.projectScreenshot1 : null,
@@ -58,7 +59,7 @@ class Project extends Component {
                 <ProjectHeader
                     description={this.state.description}
                     title={this.state.title}
-                    bannerImage={this.state.imgDesktop}
+                    bannerImage={this.state.imgHero}
                     link={this.state.link}
                     />
                 <ProjectDetail projectData={this.state} />

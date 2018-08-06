@@ -87,10 +87,18 @@ class AdminBio extends Component{
 
     retrieveBio(){
         axios.get('/api/user/bio/samesJeabrook').then((res) => {
-            if(res.data.data.aboutMe && res.data.data.aboutWork && res.data.data.tagline){
+            if(res.data.data.aboutMe){
                 this.setState({
-                    aboutMeValue: res.data.data.aboutMe,
-                    aboutWorkValue: res.data.data.aboutWork,
+                    aboutMeValue: res.data.data.aboutMe
+                });
+            }
+            if(res.data.data.aboutWork){
+                this.setState({
+                    aboutWorkValue: res.data.data.aboutWork
+                });
+            }
+            if(res.data.data.tagline){
+                this.setState({
                     tagLine: res.data.data.tagLine
                 });
             }

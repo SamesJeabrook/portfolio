@@ -23,6 +23,7 @@ const upload = multer({ storage });
 // update - create Projects list
 
 router.post('/update', passport.authenticate('jwt', {session: false}), upload.fields([
+        {name: 'projectHeroImage', maxCount: 1},
         {name: 'projectImageDesktop', maxCount: 1},
         {name: 'projectImageMobile', maxCount: 1},
         {name: 'projectScreenshot1', maxCount: 1},
@@ -40,6 +41,7 @@ router.post('/update', passport.authenticate('jwt', {session: false}), upload.fi
         updateProjects.projectLikes = req.body.projectLikes,
         updateProjects.projectImprovements = req.body.projectImprovements,
         updateProjects.projectLinkTo = req.body.projectLinkTo,
+        req.files.projectHeroImage ? updateProjects.projectHeroImage = req.files.projectHeroImage[0].path : null,
         req.files.projectImageDesktop ? updateProjects.projectImageDesktop = req.files.projectImageDesktop[0].path : null,
         req.files.projectImageMobile ? updateProjects.projectImageMobile = req.files.projectImageMobile[0].path : null,
         req.files.projectScreenshot1 ? updateProjects.projectScreenshot1 = req.files.projectScreenshot1[0].path : null,
@@ -71,6 +73,7 @@ router.post('/update', passport.authenticate('jwt', {session: false}), upload.fi
         projects.projectLikes = req.body.projectLikes;
         projects.projectImprovements = req.body.projectImprovements;
         projects.projectLinkTo = req.body.projectLinkTo;
+        req.files.projectHeroImage ? updateProjects.projectHeroImage = req.files.projectHeroImage[0].path : null,
         req.files.projectImageDesktop ?  projects.projectImageDesktop = req.files.projectImageDesktop[0].path : null
         req.files.projectImageMobile ? projects.projectImageMobile = req.files.projectImageMobile[0].path : null;
         req.files.projectScreenshot1 ? projects.projectScreenshot1 = req.files.projectScreenshot1[0].path : null;

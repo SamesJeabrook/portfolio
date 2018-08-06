@@ -9,6 +9,7 @@ const projectsSchema = new mongoose.Schema({
     projectLikes: String,
     projectImprovements: String,
     projectLinkTo: String,
+    projectHeroImage: String,
     projectImageDesktop: String,
     projectImageMobile: String,
     projectScreenshot1: String,
