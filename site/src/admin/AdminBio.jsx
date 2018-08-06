@@ -41,7 +41,7 @@ class AdminBio extends Component{
         this.state = {
             aboutMeValue : localStorage.getItem('aboutMe')=== null ? JSON.stringify(DocumentSet) : JSON.parse(localStorage.getItem('aboutMe')),
             aboutWorkValue : localStorage.getItem('aboutWork') === null ? JSON.stringify(DocumentSet) : JSON.parse(localStorage.getItem('aboutWork')),
-            profileId: props.match.params.id
+            profileId: props.match.params.id,
         }
         this.handleAboutMeChange = this.handleAboutMeChange.bind(this);
         this.handleAboutWorkChange = this.handleAboutWorkChange.bind(this);
@@ -97,7 +97,7 @@ class AdminBio extends Component{
                     aboutWorkValue: res.data.data.aboutWork
                 });
             }
-            if(res.data.data.tagline){
+            if(res.data.data.tagLine){
                 this.setState({
                     tagLine: res.data.data.tagLine
                 });
