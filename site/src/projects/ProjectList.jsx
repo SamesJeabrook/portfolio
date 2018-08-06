@@ -255,7 +255,7 @@ class ProjectsList extends Component {
                                     <div className="col-4 project-item__image">
                                         <div className="project-item__image-container">
                                             <div className="project-item__image-wrapper">
-                                                <img src={this.setStaticImagePath(item.projectImageDesktop)} alt="First Project"/>
+                                                <img src={this.setStaticImagePath(item.projectHeroImage)} alt="First Project"/>
                                             </div>
                                         </div>
                                     </div>

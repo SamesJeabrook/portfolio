@@ -15,7 +15,7 @@ _SpecRunner.html
 __benchmarks__
 build/
 uploads/
-public/
+# public/
 remote-repo/
 coverage/
 flow-coverage/

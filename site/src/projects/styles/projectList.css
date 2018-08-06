@@ -12,6 +12,13 @@ img {
   border: 1px solid #333;
   border-radius: 3px; }
 
+.project-item a {
+  color: #666; }
+
+.project-item a:hover {
+  color: #000;
+  text-decoration: none; }
+
 @media (min-width: 767px) {
   .projects-list-wrapper {
     margin-top: 50px; }

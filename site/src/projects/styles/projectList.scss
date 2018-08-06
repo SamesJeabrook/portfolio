@@ -13,6 +13,14 @@ img{
     border: 1px solid #333;
     border-radius: 3px;
 }
+.project-item a{
+    color: #666;
+}
+.project-item a:hover{
+    color: #000;
+    text-decoration: none;
+}
+
 
 
 // small devices
