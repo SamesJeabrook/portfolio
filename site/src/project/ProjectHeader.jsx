@@ -220,8 +220,7 @@ class ProjectHeader extends Component {
     render(){
         return(
             <div className="projects-header">
-                <div className="header-image">
-                    <img src={this.setStaticImagePath(this.props.bannerImage)} alt=""/>
+                <div className="header-image" style={{"backgroundImage" : `url("${this.setStaticImagePath(this.props.bannerImage)}")`}}>
                 </div>
                 <span className="vertical-align"></span>
                 <div className="projects-header-text">
