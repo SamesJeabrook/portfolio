@@ -45,11 +45,17 @@
   z-index: 1; }
   .projects-header-text h1 {
     font-weight: 200; }
-  .projects-header-text a {
+  .projects-header a {
       color: #666;}
-  .projects-header-text a:hover{
+  .projects-header a:hover{
     color: #333;
     text-decoration: none;}
+  .projects-header-return-link{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    z-index: 3;;
+  }
   .projects-header-text .small {
     font-weight: 100;
     color: #666; }

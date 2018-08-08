@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Value} from 'slate';
 import Html from 'slate-html-serializer';
+import {Link} from 'react-router-dom';
 
 // components
 
@@ -222,6 +223,7 @@ class ProjectHeader extends Component {
             <div className="projects-header">
                 <div className="header-image" style={{"backgroundImage" : `url("${this.setStaticImagePath(this.props.bannerImage)}")`}}>
                 </div>
+                <Link to="/projects" className="projects-header-return-link">Back to all projects</Link>
                 <span className="vertical-align"></span>
                 <div className="projects-header-text">
                     <h1>{this.props.title}</h1>
