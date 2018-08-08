@@ -50,7 +50,8 @@ class AdminProjects extends Component {
             projectLikesValue:  JSON.stringify(DocumentSet),
             projectImprovementsValue:  JSON.stringify(DocumentSet),
             projectTitle: '',
-            projectLinkTo: ''
+            projectLinkTo: '',
+            projectTechnologies: ''
         }
         this.handleProjectDescChange = this.handleProjectDescChange.bind(this);
         this.handleProjectDetailChange = this.handleProjectDetailChange.bind(this);
@@ -145,8 +146,9 @@ class AdminProjects extends Component {
             projectDetailValue,
             projectChallengesValue,
             projectLikesValue,
-            projectImprovements,
+            projectImprovementsValue,
             projectLinkTo,
+            projectTechnologies,
             projectHeroImage,
             projectImageDesktop,
             projectImageMobile,
@@ -164,10 +166,11 @@ class AdminProjects extends Component {
         formData.append('projectDesc', projectDescValue);
         formData.append('projectDescShort', projectDescShort);
         formData.append('projectDetail', projectDetailValue);
-        formData.append('projectChalleges', projectChallengesValue);
+        formData.append('projectChallenges', projectChallengesValue);
         formData.append('projectLikes', projectLikesValue);
-        formData.append('projectImprovements', projectImprovements);
+        formData.append('projectImprovements', projectImprovementsValue);
         formData.append('projectLinkTo', projectLinkTo);
+        formData.append('projectTechnologies', projectTechnologies);
         formData.append('projectHeroImage', projectHeroImage);
         formData.append('projectImageDesktop', projectImageDesktop);
         formData.append('projectImageMobile', projectImageMobile);
@@ -303,6 +306,7 @@ class AdminProjects extends Component {
             projectImprovementsValue,
             projectTitle,
             projectLinkTo,
+            projectTechnologies,
             projectsList,
             projectHeroImage,
             projectImageDesktop,
@@ -360,6 +364,10 @@ class AdminProjects extends Component {
                                 <FormGroup>
                                     <Label>Project Improvements</Label>
                                     <AdminProjectImprov onChange={this.handleProjectImprovementsChange} value={projectImprovementsValue} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="projectTechnologies">Project Technologies</Label>
+                                    <Input type="text" onChange={this.handleTextChange} id="projectTechnologies" name="projectTechnologies" placeholder="What tech was used, format: Jquery, React, Node" value={projectTechnologies} />
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Hero Image</Label>

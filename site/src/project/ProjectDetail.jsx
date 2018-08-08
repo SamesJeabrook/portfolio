@@ -219,7 +219,7 @@ class ProjectDetail extends Component {
     }
 
     render(){
-        const {description, detail, challenges, likes, improvements, title, link, shortDescription, imgDesktop, imgMobile, imgScreenshot1, imgScreenshot2, imgScreenshot3} = this.props.projectData;
+        const {description, detail, challenges, likes, improvements, title, link, tech, shortDescription, imgDesktop, imgMobile, imgScreenshot1, imgScreenshot2, imgScreenshot3} = this.props.projectData;
         return(
             <div className="container project-detail">
                 <div className="row">
@@ -264,6 +264,12 @@ class ProjectDetail extends Component {
                         <div className="col-12 col-md-6">
                             <h3>Project Improvements</h3>
                             <div dangerouslySetInnerHTML={{ __html: this.renderHtml(improvements) }}></div>
+                        </div>
+                    :null }
+                    {tech ?
+                        <div className="col-12 col-md-6">
+                            <h3>Project Technolgoies</h3>
+                            <div> <p>{tech}</p></div>
                         </div>
                     :null }
                 </div>

@@ -15,7 +15,7 @@ class ProjectsBar extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <Button color="default"><Link to="/Projects">View Projects</Link></Button>
+                            <Link to="/Projects"><Button color="default">View Projects</Button></Link>
                         </div>
                     </div>
                 </div>

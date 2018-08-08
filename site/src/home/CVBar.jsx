@@ -19,7 +19,7 @@ class CVBar extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-6">
-                            <form action="/jamesCV.docx">
+                            <form action="/jamesCV.pdf">
                                 <Button color="default">Download CV</Button>
                             </form>
                         </div>

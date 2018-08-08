@@ -27,6 +27,7 @@ class Project extends Component {
                 improvements: data.projectImprovements && data.projectImprovements !== "undefined" ? JSON.parse(data.projectImprovements) : null,
                 title: data.projectTitle && data.projectTitle !== "undefined" ? data.projectTitle : null,
                 link: data.projectLinkTo && data.projectLinkTo !== "undefined" ? data.projectLinkTo : null,
+                tech: data.projectTechnologies && data.projectTechnologies !== "undefined" ? data.projectTechnologies : null,
                 shortDescription: data.projectDescShort && data.projectDescShort !== "undefined" ? data.projectDescShort : null,
                 imgHero: data.projectHeroImage && data.projectHeroImage !== "undefined" ? data.projectHeroImage : null,
                 imgDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,

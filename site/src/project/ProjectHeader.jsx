@@ -226,7 +226,7 @@ class ProjectHeader extends Component {
                 <div className="projects-header-text">
                     <h1>{this.props.title}</h1>
                     <div dangerouslySetInnerHTML={{ __html: this.renderHtml(this.props.description) }}></div>
-                    {this.props.link ? <a href={this.props.link}>Go To Project</a> : null}
+                    {this.props.link && this.props.link !== 'null' ? <a href={this.props.link}>Go To Project</a> : null}
                 </div>
             </div>
         )
