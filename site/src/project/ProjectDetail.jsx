@@ -267,7 +267,7 @@ class ProjectDetail extends Component {
                         </div>
                     :null }
                     {tech ?
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-md-6 project-technologies">
                             <h3>Project Technolgoies</h3>
                             <div> <p>{tech}</p></div>
                         </div>

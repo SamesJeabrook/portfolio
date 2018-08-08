@@ -4,8 +4,13 @@
 .project-detail .screenshot-container {
   min-height: 500px; }
 
-.additional-screenshots img {
-  margin-top: 10px; }
+.project-technologies {
+  font-style: italic; }
+
+.additional-screenshots {
+  text-align: center; }
+  .additional-screenshots img {
+    margin-top: 10px; }
 
 .desktop-image-container {
   height: 320px;

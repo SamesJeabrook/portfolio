@@ -261,13 +261,14 @@ class AdminProjects extends Component {
                 projectImprovementsValue: data.projectImprovements && data.projectImprovements !== "undefined" ? data.projectImprovements : JSON.stringify(DocumentSet),
                 projectTitle: data.projectTitle && data.projectTitle !== "undefined" ? data.projectTitle : null,
                 projectLinkTo: data.projectLinkTo && data.projectLinkTo !== "undefined" ? data.projectLinkTo : null,
+                projectTechnologies: data.projectTechnologies && data.projectTechnologies !== "undefined" ? data.projectTechnologies : null,
                 projectDescShort: data.projectDescShort && data.projectDescShort !== "undefined" ? data.projectDescShort : null,
                 projectHeroImage: data.projectHeroImage && data.projectHeroImage !== "undefined" ? data.projectHeroImage : null,
                 projectImageDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,
                 projectImageMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
-                projectImageScreenshot1: data.projectImageScreenshot1 && data.projectImageScreenshot1 !== "undefined" ? data.projectImageScreenshot1 : null,
-                projectImageScreenshot2: data.projectImageScreenshot2 && data.projectImageScreenshot2 !== "undefined" ? data.projectImageScreenshot2 : null,
-                projectImageScreenshot3: data.projectImageScreenshot3 && data.projectImageScreenshot3 !== "undefined" ? data.projectImageScreenshot3 : null
+                projectScreenshot1: data.projectScreenshot1 && data.projectScreenshot1 !== "undefined" ? data.projectScreenshot1 : null,
+                projectScreenshot2: data.projectScreenshot2 && data.projectScreenshot2 !== "undefined" ? data.projectScreenshot2 : null,
+                projectScreenshot3: data.projectScreenshot3 && data.projectScreenshot3 !== "undefined" ? data.projectScreenshot3 : null
             });
         }, (e) => {
             this.setState({
@@ -311,9 +312,9 @@ class AdminProjects extends Component {
             projectHeroImage,
             projectImageDesktop,
             projectImageMobile,
-            projectImageScreenshot1,
-            projectImageScreenshot2,
-            projectImageScreenshot3} = this.state;
+            projectScreenshot1,
+            projectScreenshot2,
+            projectScreenshot3} = this.state;
         return(
             <div className="admin-projects">
                 <AdminHeader />, 
@@ -387,17 +388,17 @@ class AdminProjects extends Component {
                                 <FormGroup>
                                     <Label>Additional Screen shot 1</Label>
                                     <Input type="file" onChange={this.handleFileChange} name="projectScreenshot1"/>
-                                    {projectImageScreenshot1 ? <img src={this.setStaticImagePath(projectImageScreenshot1)} alt="Desktop Image"/> : null }
+                                    {projectScreenshot1 ? <img src={this.setStaticImagePath(projectScreenshot1)} alt="Desktop Image"/> : null }
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Additional Screen shot 2</Label>
                                     <Input type="file" onChange={this.handleFileChange} name="projectScreenshot2"/>
-                                    {projectImageScreenshot2 ? <img src={this.setStaticImagePath(projectImageScreenshot2)} alt="Desktop Image"/> : null }
+                                    {projectScreenshot2 ? <img src={this.setStaticImagePath(projectScreenshot2)} alt="Desktop Image"/> : null }
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Additional Screen shot 3</Label>
                                     <Input type="file" onChange={this.handleFileChange} name="projectScreenshot3"/>
-                                    {projectImageScreenshot3 ? <img src={this.setStaticImagePath(projectImageScreenshot3)} alt="Desktop Image"/> : null }
+                                    {projectScreenshot3 ? <img src={this.setStaticImagePath(projectScreenshot3)} alt="Desktop Image"/> : null }
                                 </FormGroup>
                                 <Button type="submit" >Submit</Button>
                             </Form>
