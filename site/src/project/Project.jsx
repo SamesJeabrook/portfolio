@@ -32,6 +32,7 @@ class Project extends Component {
                 imgHero: data.projectHeroImage && data.projectHeroImage !== "undefined" ? data.projectHeroImage : null,
                 imgDesktop: data.projectImageDesktop && data.projectImageDesktop !== "undefined" ? data.projectImageDesktop : null,
                 imgMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
+                imgMobileOrientation: data.projectMobileView && data.projectMobileView !=="undefined" ? data.projectMobileView : "portrait",
                 imgScreenshot1: data.projectScreenshot1 && data.projectScreenshot1 !== "undefined" ? data.projectScreenshot1 : null,
                 imgScreenshot2: data.projectScreenshot2 && data.projectScreenshot2 !== "undefined" ? data.projectScreenshot2 : null,
                 imgScreenshot3: data.projectScreenshot3 && data.projectScreenshot3 !== "undefined" ? data.projectScreenshot3 : null

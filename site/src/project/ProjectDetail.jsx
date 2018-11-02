@@ -219,7 +219,7 @@ class ProjectDetail extends Component {
     }
 
     render(){
-        const {description, detail, challenges, likes, improvements, title, link, tech, shortDescription, imgDesktop, imgMobile, imgScreenshot1, imgScreenshot2, imgScreenshot3} = this.props.projectData;
+        const {description, detail, challenges, likes, improvements, title, link, tech, shortDescription, imgDesktop, imgMobile, imgMobileOrientation, imgScreenshot1, imgScreenshot2, imgScreenshot3} = this.props.projectData;
         return(
             <div className="container project-detail">
                 <div className="row">
@@ -238,6 +238,13 @@ class ProjectDetail extends Component {
                                 </div>
                             : null}
                             {imgMobile ? 
+                              imgMobileOrientation == 'landscape' ? 
+                                <div className="phone-image-container-landscape">
+                                    <div className="phone-surround-image-landscape">
+                                    </div>
+                                    <img src={this.setStaticImagePath(imgMobile)} alt=""/>
+                                </div>
+                              : 
                                 <div className="phone-image-container">
                                     <div className="phone-surround-image">
                                     </div>

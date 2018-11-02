@@ -53,6 +53,28 @@
   height: 100%;
   z-index: 1; }
 
+.phone-image-container-landscape {
+  height: 80px;
+  width: 160px;
+  position: absolute;
+  right: 10%;
+  bottom: 40%;
+  z-index: 3;
+  overflow: hidden; }
+  .phone-image-container-landscape img {
+    max-width: 100%;
+    padding: 0; }
+
+.phone-surround-image-landscape {
+  background: url("../images/phoneSurroundLandscape.png") center center no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
 @media (min-width: 768px) {
   .desktop-image-container {
     height: 275px; }
@@ -65,4 +87,6 @@
     height: 390px; }
   .phone-image-container {
     right: 20%;
-    top: 40%; } }
+    top: 40%; }
+  .phone-image-container-landscape {
+    bottom: 25%; } }

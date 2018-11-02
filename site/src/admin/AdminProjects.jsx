@@ -64,6 +64,7 @@ class AdminProjects extends Component {
         this.handleProjectDelete = this.handleProjectDelete.bind(this);
         this.setStaticImagePath = this.setStaticImagePath.bind(this);
         this.handleSetProjectId = this.handleSetProjectId.bind(this);
+        this.handleMobileViewChange = this.handleMobileViewChange.bind(this);
     }
 
     handleProjectDescChange({value}){
@@ -128,6 +129,12 @@ class AdminProjects extends Component {
         });
     }
 
+    handleMobileViewChange(e){
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
     handleSetProjectId(e){
         const id = e.target.parentElement.dataset.id;
         this.setState({
@@ -155,6 +162,7 @@ class AdminProjects extends Component {
             projectScreenshot1,
             projectScreenshot2,
             projectScreenshot3,
+            projectMobileView,
             projectId
         } = this.state;
 
@@ -177,6 +185,7 @@ class AdminProjects extends Component {
         formData.append('projectScreenshot1', projectScreenshot1);
         formData.append('projectScreenshot2', projectScreenshot2);
         formData.append('projectScreenshot3', projectScreenshot3);
+        formData.append('projectMobileView', projectMobileView);
 
 
         axios.post('/api/projects/update', formData, {headers: {'Authorization' : localStorage.jsToken, 'Content-Type': 'multipart/form-data'}}).then((res) =>{
@@ -268,7 +277,8 @@ class AdminProjects extends Component {
                 projectImageMobile: data.projectImageMobile && data.projectImageMobile !== "undefined" ? data.projectImageMobile : null,
                 projectScreenshot1: data.projectScreenshot1 && data.projectScreenshot1 !== "undefined" ? data.projectScreenshot1 : null,
                 projectScreenshot2: data.projectScreenshot2 && data.projectScreenshot2 !== "undefined" ? data.projectScreenshot2 : null,
-                projectScreenshot3: data.projectScreenshot3 && data.projectScreenshot3 !== "undefined" ? data.projectScreenshot3 : null
+                projectScreenshot3: data.projectScreenshot3 && data.projectScreenshot3 !== "undefined" ? data.projectScreenshot3 : null,
+                projectMobileView: data.projectMobileView && data.projectMobileView !== "undefined" ? data.projectMobileView : null
             });
         }, (e) => {
             this.setState({
@@ -384,6 +394,18 @@ class AdminProjects extends Component {
                                     <Label>Mobile Screen shot</Label>
                                     <Input type="file" onChange={this.handleFileChange} name="projectImageMobile"/>
                                     {projectImageMobile ? <img src={this.setStaticImagePath(projectImageMobile)} alt="Desktop Image"/> : null }
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label check>
+                                        <Input type="radio" name="projectMobileView" value="portrait" onChange={this.handleMobileViewChange} />{' '}
+                                        Portrait mobile view
+                                    </Label>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label check>
+                                        <Input type="radio" name="projectMobileView" value="landscape" onChange={this.handleMobileViewChange}/>{' '}
+                                        Landscape mobile view
+                                    </Label>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Additional Screen shot 1</Label>
